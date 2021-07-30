@@ -2,7 +2,52 @@ ps -ef | grep python   查看指定进程
 ipconfig   查询本机的网络信息属性
 arp -a   查询同一局域网的所有主机ip
 net view 查询局域网主机名称
+ln -s (文件位置)    创建软链接
+
+在ram上运行驱动：/usr/src/....
+Ubuntu上会产生许多文件:
+kernel_hello.c 
+kernel_hello.o
+Makefile
+kernel_hello.ko
+kernel_hello.mod
+kernel_hello.mod.c
+kernel_hello.mod.o
+Module.symvers
+modules.order
+
+RAM上运行驱动位置：/usr/src/linux-headers-$(shell uname -r)
+在pc上运行驱动位置：/lib/modules/$(shell uname -r)/build
+   
 服务器分为数据服务器和应用服务器
+
+Makefile语法：
+= 是最基本的赋值
+:= 是覆盖之前的值
+?= 是如果没有被赋值过就赋予等号后面的值
++= 是添加等号后面的值
+加@ 在命令行不显示
+clear，clean等指令要写在Makefile文件中，之后才能make clear/n
+$(MAKE) -C $(KERNELDIR) M = $(CURRENT_PATH) modules   创建模块ko
+$(MAKE) -C $(KERNELDIR) M = $(CURRENT_PATH) clean        删除模块创建产生的一系列文件
+默认执行第一个目标操作  XXX：   相当于语言中的主函数
+第一行直接写操作名称即可不用加make，如果换行，则需要用make + 操作名称
+例如   caoyong：kernel_modules
+	          make clear  （后面的操作需要加上make)
+                          。。。
+
+printk(KERN_ALERT "Hello, caoyong IoT Studio!\n");
+printk函数的参数有0-7八个级别，默认为4
+#define 	KERN_EMERG  	"<0>"   系统(不使用)	               /* system is unusable        */
+#define 	KERN_ALERT  	"<1>"   立即执行(操作系统使用) /* action must be taken immediately */
+#define 	KERN_CRIT   	"<2>"   紧急情况(临界条件)       /* critical conditions          */
+#define 	KERN_ERR    	"<3>"   错误	               /* error conditions            */
+#define 	KERN_WARNING      "<4>"   警告	               /* warning conditions       */
+#define 	KERN_NOTICE 	"<5>"   提示	               /* normal but significant condition */
+#define 	KERN_INFO   	"<6>"   正常打印	               /* informational               */
+#define 	KERN_DEBUG  	"<7>"   调试	               /* debug-level messages  */
+
+
 
 window命令行 ：
 dir  查看当前目录下的文件和文件夹
