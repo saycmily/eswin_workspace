@@ -1,0 +1,53 @@
+函数指针：  int (*p)(int,  int) = max
+当函数参数列表为空时，可以使用void:  void empty(void);
+size_t  =  unsigned int(long)
+结构体定义变量时要加上struct： struct book a1;
+没有string类型
+字符串赋值不能使用 =， 要使用strcpy
+指针访问成员： ->
+共用体union，多成员，但是任何时候只能有一个成员带有值
+位域：声明变量后加 ：x ，表明该变量只占x位
+位域声明：
+struct book
+{
+  unsigned int widthValidated : 1;
+  unsigned int heightValidated : 1;
+} 
+
+
+typedef: 
+1、为数据类型赋予新的名字
+2、创建新类型
+typedef struct
+{
+    int a;
+    char b;
+    double c; 
+} Simple2;
+Simple2 a1;
+
+typedef 仅限于为类型定义符号名称，#define 不仅可以为类型定义别名，也能为数值定义别名，比如您可以定义 1 为 ONE。
+typedef 是由编译器执行解释的，#define 语句是由预编译器进行处理的。
+getchar(), putchar()
+gets(), puts()
+scanf(), printf()
+
+1	strcpy(s1, s2);
+复制字符串 s2 到字符串 s1。
+2	strcat(s1, s2);
+连接字符串 s2 到字符串 s1 的末尾。
+3	strlen(s1);
+返回字符串 s1 的长度。
+4	strcmp(s1, s2);
+如果 s1 和 s2 是相同的，则返回 0；如果 s1<s2 则返回小于 0；如果 s1>s2 则返回大于 0。
+5	strchr(s1, ch);
+返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。
+6	strstr(s1, s2);
+返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。
+
+
+文件操作：
+打开文件：  fopen（）
+关闭文件：fclose（）
+写入文件：fputc（）
+读取文件：fgetc（）

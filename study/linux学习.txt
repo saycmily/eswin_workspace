@@ -3,7 +3,30 @@ ipconfig   查询本机的网络信息属性
 arp -a   查询同一局域网的所有主机ip
 net view 查询局域网主机名称
 ln -s (文件位置)    创建软链接
+mv  移动文件/重命名文件
+typedef  long long  loff_t
 
+c预处理器（C Preprocessor） CPP, 文本替换工具
+预处理指令都是以#开头，在实际编译之前替换成编译器能识别的代码
+#define 定义宏    可以模拟函数
+预定义宏：编译器事先设定好的宏： __DATE__  __TIME__   __FILE__  __LINE__
+宏中    \  # ##  defined()
+
+错误处理：
+erron（整数），perror，strerror,  错误输出文件流：stderr
+fprintf(stderr，“”）
+perror（“..”）
+
+函数参数数量可变 stdarg.h
+动态分配内存：calloc，malloc
+char *description = （char*）malloc（200 * sizeof（char））；
+释放内存：free
+重新分配内存：realloc
+
+命令行参数 int main(int argc, char *argv[])
+argc 参数个数， argv[]指针数组，指向传递给程序的每个参数
+没有任何参数时argc是1，argv[0] 存储程序的名称，argv[1] 是一个指向第一个命令行参数的指针
+ 
 在ram上运行驱动：/usr/src/....
 Ubuntu上会产生许多文件:
 kernel_hello.c 
@@ -22,6 +45,8 @@ RAM上运行驱动位置：/usr/src/linux-headers-$(shell uname -r)
 服务器分为数据服务器和应用服务器
 
 Makefile语法：
+.PHONY： 指定伪目标（不管是否存在相同名称文件，该目标一定执行）
+make -f rules.txt  // make --file=rules.txt   默认执行Makefile文件，当没有时指定txt文件并使用其中的规则
 = 是最基本的赋值
 := 是覆盖之前的值
 ?= 是如果没有被赋值过就赋予等号后面的值
@@ -47,6 +72,20 @@ printk函数的参数有0-7八个级别，默认为4
 #define 	KERN_INFO   	"<6>"   正常打印	               /* informational               */
 #define 	KERN_DEBUG  	"<7>"   调试	               /* debug-level messages  */
 
+在使用设备树时我们将**.dts文件利用dtc编译器编译为**.dtb文件。
+在已知**.dtb文件的情况下我们有两种方法可以得到dts源码：
+方法一：使用fdtdump工具进行反汇编
+           使用命令：root#fdtdump **.dtb > temp.dts
+           反汇编生成的内容保存在temp.dts
+方法二：使用dtc编译器进行反汇编
+           dtc -h 可以产看dtc命令的帮助
+           使用命令：root# dtc -I dtb -O dts -o temp1.dts s5pv210-smdkv210.dtb
+
+功能	函数原型
+打开文件	struct file *filp_open(const char *filename, int flags, int mode)
+读取文件	ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
+写文件	ssize_t vfs_write(struct file *file, const char __user *buf, size_t count, loff_t *pos)
+关闭文件	int filp_close(struct file *filp, fl_owner_t id)
 
 
 window命令行 ：

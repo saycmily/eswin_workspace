@@ -1,9 +1,13 @@
 #include <stdio.h>
+int main( ) {
  
-int main()
-{
-    /* 我的第一个 C 程序 */
-    printf("Hello, World! \n");
+   char str[100];
+   int i;
  
-    return 0;
+   printf( "Enter a value :");
+   scanf("%s %d", str, &i);
+ 
+   printf( "\nYou entered: %s %d ", str, i);
+   printf("\n");
+   return 0;
 }
