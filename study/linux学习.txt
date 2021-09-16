@@ -1,5 +1,5 @@
 ps -ef | grep python   查看指定进程
-ipconfig   查询本机的网络信息属性
+ifconfig   查询本机的网络信息属性
 arp -a   查询同一局域网的所有主机ip
 net view 查询局域网主机名称
 ln -s (文件位置)    创建软链接
@@ -15,7 +15,7 @@ expr  表达式计算公式
 记录时间  `data +%s`   前空格后无空格
 rm -i  逐一询问，-f 无需询问，不存在不会提示， -r递归删除
 shell文件包含    . filename (有空格)    也可以： source filename
-
+bus：总线，，paltform： 虚拟总线
 
 repo init -u ssh://caoyong@10.12.130.33:29418/metis-station/manifest -b metis-dev --repo-url=ssh://caoyong@10.12.130.33:29418/tools/git-repo
 repo sync -cdj4 --no-tags

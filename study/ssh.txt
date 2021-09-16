@@ -10,3 +10,23 @@ ssh地址：10.12.192.64   10.12.224.30    caoyong  22
 如果原本只是下载了代码，没有连接
 与远程仓库“建立”连接： git remote add origin XXXXX.git
 获取git密钥：ssh-keygen -t rsa -C "邮箱"
+
+从Gerrit上下载repo代码，假设下载到$WORKSPACE目录：
+cd $WORKSPACE
+repo init -u ssh://账号@10.12.130.33:29418/metis-station/manifest -b metis-dev --repo-url=ssh://账号@10.12.130.33:29418/tools/git-repo
+替换以上“账号”为自己的gerrit账号。
+将远程代码同步到本地：
+repo sync –cdj4 -–no-tags
+如果是首次下载代码，需要在 http://10.12.130.33/gerrit/settings 添加ssh-key公共秘钥。首先查看自己的开发机 cat ~/.ssh/id_rsa.pub，如有内容，直接copy到gerrit服务器上的用户设置的ssh keys相应的设置中；如果没有内容，可以使用ssh-keygen 命令一路回车产生~/.ssh/id_rsa.pub.
+如果在后面sync代码时遇到”Fatal Remote error …”相关的错误，可以使用：
+git config --global --add core.compression 0
+去解决这个问题。
+
+
+ssh -p22 cmily@192.168.89.144
+service sshd start   
+
+git checkout --track origin/branch_name    创建与远端分支相同名称的本地分支
+
+git common -v
+git push origin HEAD:refs/for/metis-mian-d_l4t_upgrade

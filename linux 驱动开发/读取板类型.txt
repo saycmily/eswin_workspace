@@ -1,0 +1,4 @@
+ struct device_node *root = of_find_node_by_path("/");
+   const char *cbd_type = of_get_property(root, "carrier_board_type", NULL);
+   brd_type = cbd_type;
+   printk(KERN_INFO "ESW BOARD TYPE DETECT:: the current Metis station board type is: %s\n", brd_type);
