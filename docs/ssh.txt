@@ -45,5 +45,5 @@ ssh -p22 cmily@192.168.89.144
 #代码提交与管理
 git checkout --track origin/branch_name    创建与远端分支相同名称的本地分支
 git add .
-git common -v “??????!!!!!!!!”
+git common -v “??????!!!!!!!!"
 git push origin HEAD:refs/for/metis-mian-d_l4t_upgrade
