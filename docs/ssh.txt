@@ -22,11 +22,28 @@ repo sync –cdj4 -–no-tags
 git config --global --add core.compression 0
 去解决这个问题。
 
+#查看ip地址
+ifconfig
+sudo apt install net-tools
 
+#查看ssh当前状态
+sudo apt-get install ssh
+/etc/init.d/ssh status
+
+#开启sshd服务器模式
+systemctl enable sshd.socket
+systemctl start sshd.socket
+service sshd start
+
+#scp工具
+scp -r ./a.txt ekko@10.12.1.1:/home/ekko/...  推送数据到远端
+scp -r ekko@10.12.1.1:/home/ekko/...  ./     拉取远端数据
+
+#命令行连接远端
 ssh -p22 cmily@192.168.89.144
-service sshd start   
-
+   
+#代码提交与管理
 git checkout --track origin/branch_name    创建与远端分支相同名称的本地分支
-
-git common -v
+git add .
+git common -v “??????!!!!!!!!”
 git push origin HEAD:refs/for/metis-mian-d_l4t_upgrade
