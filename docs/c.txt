@@ -54,3 +54,16 @@ scanf(), printf()
 
 用UTF-8将文本编码成二进制数据，用Base64将生成的二进制数据编码为文本字符串
 再将文本字符串以ASCII编码发送。接收端以相反方式复现
+
+文件IO模式：
+1、设置非阻塞模式
+int flag;
+flag = fcntl(socketfd, F_GETFL, 0);
+flag |= O_NONBLOCK;
+fcntl(socketfd, F_SETFL, flag);
+
+2、设置阻塞模式
+int flag;
+flag = fcntl(socketfd, F_GETFL, 0);
+flag &= ~O_NONBLOCK;
+fcntl(socketfd, F_SETFL, flag);
