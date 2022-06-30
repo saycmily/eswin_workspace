@@ -1,0 +1,8 @@
+1、智能指针
+	shared_ptr<type>(object) 		指针转为智能指针
+
+	make_shared<type>(pars) 		通过构造函数直接构建智能指针
+	
+	std::dynamic_pointer_cast<CServerSpecs>(share_ptr);  	智能指针类型强转
+
+	dynamic_cast<Spec*>(ptr); 	指针强转
